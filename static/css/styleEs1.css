@@ -1,0 +1,12 @@
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.img {
+    width: 400px;
+    height: 400px;
+}
