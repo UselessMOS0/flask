@@ -1,12 +1,34 @@
-body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-}
 
 .img {
     width: 400px;
     height: 400px;
+}
+
+
+#frase {
+    position: relative;
+    top: 30vh;
+    width: 80vw;
+    left: 10vw;
+    height: 300px;
+    font-size: 90px;
+    color: aliceblue;
+    font-family: cursive;
+}
+
+#autore {
+    position: absolute;
+    font-size: 50px;
+    color: aliceblue;
+    bottom: 0;
+    right: 0;
+}
+
+#imgc {
+    width: 1000px;
+    height: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
 }
