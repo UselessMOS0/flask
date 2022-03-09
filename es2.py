@@ -12,14 +12,31 @@ def register():
         username = request.form.get('username')
         pwd = request.form.get('pwd')
         sex = request.form.get('Sex')
-        if username != '' and pwd != '' and sex != None and pwd != request.form.get('cpwd'):
+        cpwd = request.form.get('cpwd')
+        if username != '' and pwd != '' and sex != '' and pwd == cpwd:
             userLst.append({'username':username, 'pwd':pwd, 'sex':sex})
             return redirect(url_for('login'))
+        else:
+            return f'errore {username,pwd,cpwd,sex}'
 
 
 @app.route('/login', methods=['GET','POST'])
 def login():
-    
+    if request.method == 'GET':
+        return render_template('es2/welcome.html')
+    else:
+        username = request.form.get('username')
+        pwd = request.form.get('pwd')
+
+        for user in userLst:
+            if username == user['username']:
+                if pwd == user['pwd']:
+                    return 'loggato'
+                else:
+                    return 'password errata'
+        
+        return 'utente non trovato' 
+
 
 
     
