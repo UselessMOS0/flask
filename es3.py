@@ -7,7 +7,7 @@
 # un capoluogo e avere la regione in cui si trova
 # l'utente sceglie se avere la regione o il capoluogo selezionando un radio button 
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for
 app = Flask(__name__)
 
 regcap = {"Abruzzo" :"L\'Aquila",
@@ -30,9 +30,24 @@ regcap = {"Abruzzo" :"L\'Aquila",
         "Valle d Aosta":"Aosta",
         "Veneto":"Venezia"}
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET','POST'])
 def home():
-    return  render_template('index.html')
+  if request.method == 'GET':
+    return  render_template('es3/index.html')
+  else:
+    input = request.form.get('input')
+    srccap = int(request.form.get('opt'))
+
+    for reg,cap in regcap.items():
+      if srccap:
+        if reg == input:
+          return cap
+      else: 
+        if cap == input:
+          return reg
+          
+    return 'errore'
+
 
 
 
