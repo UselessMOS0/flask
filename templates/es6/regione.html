@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Regione : {{ureg}}</h1>
+    <form action="/comuni" method="get">
+        <h2>selezione la provincia di cui vuoi sapere i comuni</h2>
+        <select name="provincia">
+            {% for prov in provinceReg%}
+            <option value="{{prov}}" SELECTED>{{prov}}</option>
+            {%endfor%}
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form action="/province" method="get">
+        <h2>Seleziona la regione di cui vuoi sapere le province</h2>
+        {% for reg in regioni %}
+         <input type="radio" name="uReg" value="{{reg}}">{{reg}} <br>
+        {% endfor %}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
