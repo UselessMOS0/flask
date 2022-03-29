@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form action="/quartieri" method="get">
+        <select name="quartiere1" id="">
+            {%for reg in regioni%}
+                <option value="{{reg}}">{{reg}}</option>
+            {%endfor%}
+        </select>
+        <select name="quartiere2" id="">
+            {%for reg in regioni%}
+                <option value="{{reg}}">{{reg}}</option>
+            {%endfor%}
+        </select>
+        <input type="submit" value="Visualizza">
+    </form>
+</body>
+</html>
