@@ -2,6 +2,7 @@ from flask import Flask, render_template, Response, request
 app = Flask(__name__)
 
 import pandas as pd
+import geopandas as gpd
 import io 
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
@@ -10,6 +11,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 stazioni = pd.read_csv('templates/coordfix_ripetitori_radiofonici_milano_160120_loc_final.csv',sep=';')
+stazionigeo = gpd.read_file('templates/coordfix_ripetitori_radiofonici_milano_160120_loc_final.csv')
 
 @app.route('/', methods=['GET'])
 def home():
@@ -32,7 +34,16 @@ def grafico():
     output = io.BytesIO()
     FigureCanvas(fig).print_png(output)
     return Response(output.getvalue(),mimetype='image/png')
+
+@app.route('/input', methods=['GET'])
+def input():
+    return  render_template('input.html')
     
+
+@app.route('/ricerca', methods=['GET'])
+def ricerca():
+
+    return
     
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=3245, debug=True)
