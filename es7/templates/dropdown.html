@@ -1,0 +1,10 @@
+<body>
+    <form action="/sceltastazioni" method="get">
+        <select name="stazione" id="">
+            {% for staz in stazioni %}
+                <option value="{{staz}}">{{staz}}</option>
+            {%endfor%}
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</body>
