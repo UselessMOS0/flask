@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response, request
+from flask import Flask, render_template, Response, request, redirect
 app = Flask(__name__)
 
 import pandas as pd
@@ -15,7 +15,16 @@ stazionigeo = gpd.read_file('templates/coordfix_ripetitori_radiofonici_milano_16
 
 @app.route('/', methods=['GET'])
 def home():
-    return  render_template('index.html')
+    if request.method == 'GET':
+
+        return  render_template('index.html')
+    else:
+        if request.form.get['opt'] == '1':
+            redirect(url_for('numero'))
+        elif request.form.get['opt'] == '2':
+            redirect(url_for('input'))
+        else:
+            redirect(url_for(''))
 
     
 @app.route('/numero', methods=['GET'])
