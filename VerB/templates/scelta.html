@@ -1,0 +1,8 @@
+<body>
+    <form action="/quartierestaz" method="get">
+        {%for q in quartieri%}
+          <input type="radio" name="scelta" value="{{q}}">{{q}} <br>
+        {%endfor%}
+        <input type="submit" value="Submit">
+    </form>
+</body>
