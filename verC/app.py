@@ -37,8 +37,8 @@ def valori():
 
 @app.route('/elenco', methods=['GET'])
 def elenco():
-    minim = float(min(request.args['val'],request.args['val2']))
-    maxim = float(max(request.args['val'],request.args['val2']))
+    minim = min(float(request.args['val']),float(request.args['val2']))
+    maxim = max(float(request.args['val']),float(request.args['val2']))
 
     lineeminmax = linee[(linee.lung_km > minim) & (linee.lung_km < maxim)].sort_values(by='linea',ascending=True)
     return render_template('elenco.html',tabella = lineeminmax.to_html())
