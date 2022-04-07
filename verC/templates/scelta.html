@@ -1,0 +1,10 @@
+<body>
+    <form action="/mappa" method="get">
+        <select name="u_linea" id="">
+            {%for l in linee%}
+                <option value="{{l}}">{{l}}</option>
+            {%endfor%}
+        </select>
+        <input type="submit" value="Search">
+    </form>
+</body>
