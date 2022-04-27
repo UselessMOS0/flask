@@ -1,0 +1,8 @@
+<form action="/scelta2" method = "GET">
+    <select name="u_rip">
+        {% for i in ripartizioni%}
+        <option value="{{i}}" >{{i}}</option>
+        {%endfor%}
+      </select>
+    <p><input type = "submit" value = "Submit" /></p>
+</form>

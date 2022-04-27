@@ -1,0 +1,8 @@
+<body>
+    <form action="/mappa" method="get">
+        {%for r in reg%}
+        <input type="radio" name="u_reg" value="{{r}}">{{r}}
+        {%endfor%}
+        <input type="submit" value="submit">
+    </form>
+</body>
